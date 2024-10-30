@@ -1,12 +1,14 @@
-li t0, 5
-li t1, 1
+li t0 5
+li t2 1
+li s0 1
 
-mul s0, t0, t1
+opet: mul s0, s0, t0
+sub t0, t0, t2
+beq t0, t2, kraj
 
-mul: sub s1, t0, t1
-mul s0, s1, s0
+bne t0, t2, opet
 
-bne s0, t1, mul
+kraj: nop
 
 
 
