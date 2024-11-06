@@ -46,10 +46,14 @@ BEGin
    
    --dodan xor, sll, srl
    xor_res <= a_i xor b_i;
+
+--  sll_res <= a_i sll TO_INTEGER(unsigned(b_i));
    
-   sll_res <= to_stdlogicvector(to_bitvector(a_i) sll TO_INTEGER(unsigned(b_i)));
+ --  srl_res <= a_i srl to_integer(unsigned(b_i));
+ 
+   sll_res <= std_logic_vector(shift_left(unsigned(a_i), to_integer(unsigned(b_i))));
    
-   srl_res <= to_stdlogicvector(to_bitvector(a_i) srl to_integer(unsigned(b_i)));
+   srl_res <= std_logic_vector(shift_right(unsigned(a_i), to_integer(unsigned(b_i))));
    
    slt_res <= slt_r;
 
@@ -64,7 +68,7 @@ BEGin
 			   xor_res when xor_op; --xor
 			   sll_res when sll_op;
 			   srl_res when srl_op;
-			--   slt_res when slt_op;
+			   slt_res when slt_op;
                (others => '1') when others; 
 
 

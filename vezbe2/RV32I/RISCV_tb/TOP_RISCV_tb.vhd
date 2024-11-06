@@ -129,7 +129,7 @@ begin
    -- klok signal generator
    clk_proc : process
    begin
-      clk <= '1', '0' after 100 ns;
+      clk <= '1', '0' after 100 ns, '1' after 200 ns, '0' after 300 ns, '1' after 400 ns, '0' after 500 ns, '1' after 600 ns, '0' after 700 ns, '1' after 800 ns, '0' after 900 ns;
       wait for 200 ns;
    end process;
 

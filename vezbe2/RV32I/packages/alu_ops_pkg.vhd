@@ -23,6 +23,6 @@ package alu_ops_pkg is
    constant divs_op   : std_logic_vector (4 downto 0) := "01110";  ---> divide signed
    constant remu_op   : std_logic_vector (4 downto 0) := "01111";  ---> reminder unsigned
    constant rems_op   : std_logic_vector (4 downto 0) := "10000";  ---> reminder signed
-
+   constant slt_op    : std_logic_vector (4 downto 0) := "11000"; --dodano za slt
 
 end package alu_ops_pkg;

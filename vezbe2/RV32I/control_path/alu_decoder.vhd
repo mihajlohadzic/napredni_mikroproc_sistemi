@@ -29,9 +29,7 @@ begin
             alu_op_o <= add_op;
          when "01" =>
             alu_op_o <= eq_op;
-	--dodano za xor
-		 when "11" =>
-			alu_op_o <= xor_op;
+	
          when others =>
             case funct3_i is
                when "000" =>
@@ -39,6 +37,7 @@ begin
                   if(funct7_i(5) = '1')then
                      alu_op_o <= sub_op;
                   end if;
+			--dodano za sll,srl,xor
 			   when "001" =>
 				  alu_op_o <= sll_op;
 			   when "101" =>
@@ -47,6 +46,9 @@ begin
 				  alu_op_o <= xor_op;
                when "110" =>
                   alu_op_o <= or_op;
+				 --dodano za slt operaciju
+               when "010" =>
+                  alu_op_o <= slt_op;
                when others =>
                   alu_op_o <= and_op;
             end case;
